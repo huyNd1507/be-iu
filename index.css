@@ -125,6 +125,7 @@ body {
 /* Hiệu ứng đánh máy */
 #animated-text {
   font-size: 30px;
+  font-family: "Parisienne", cursive;
   font-weight: bold;
   color: #ff4d6d;
   text-align: left;
