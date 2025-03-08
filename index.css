@@ -1,6 +1,7 @@
 /* Căn giữa nội dung */
 body {
-  font-family: "Parisienne", cursive;
+  /* font-family: "Parisienne", cursive; */
+  font-family: "Birthstone", cursive;
   text-align: center;
   background-color: #ffe6f2;
   overflow: hidden;
@@ -8,6 +9,10 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.text-1 {
+  font-family: "Birthstone", cursive !important;
 }
 
 .container {
@@ -125,7 +130,6 @@ body {
 /* Hiệu ứng đánh máy */
 #animated-text {
   font-size: 30px;
-  font-family: "Parisienne", cursive;
   font-weight: bold;
   color: #ff4d6d;
   text-align: left;
