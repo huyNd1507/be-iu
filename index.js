@@ -66,7 +66,7 @@ function createExplosion() {
 
 function typeWriterEffect() {
   const text =
-    "Hôm nay là 8/3\nAnh chúc bé yêu của anh thật vui vẻ hạnh phúc, cười nhiều hơn nhé! \nChúc cho em gặt hái được nhiều thành công và máy mắn trong cuộc sống\n Hãy luôn mìm cười và hành phúc nhé vì anh sẽ luôn bên cạnh và ủng hộ em! \n Anh yêu bé yêu nhiều! \n -- Bồ Tèo --";
+    "Hôm nay là 8/3\nAnh chúc bé yêu của anh thật vui vẻ hạnh phúc, cười nhiều hơn nhé! \nChúc cho em gặt hái được nhiều thành công và máy mắn trong cuộc sống\n Hãy luôn mỉm cười và hành phúc nhé vì anh sẽ luôn bên cạnh và ủng hộ em \n Anh yêu bé yêu nhiều! \n -- Bồ Tèo --";
   let i = 0;
   function type() {
     document.getElementById("animated-text").textContent += text[i];
