@@ -1,0 +1,261 @@
+/* Căn giữa nội dung */
+body {
+  font-family: "Parisienne", cursive;
+  text-align: center;
+  background-color: #ffe6f2;
+  overflow: hidden;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Nút trái tim */
+.heart-button {
+  font-size: 120px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-top: 300px;
+  animation: pulse 1.5s infinite;
+}
+
+/* Hiệu ứng nhấp nháy */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Viên đạn tròn bắn lên */
+.bullet {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: red;
+  border-radius: 50%;
+  left: 50%;
+  bottom: 50px;
+  transform: translateX(-50%);
+  animation: shootUp 3s linear forwards;
+}
+
+/* Hiệu ứng bắn lên */
+@keyframes shootUp {
+  0% {
+    bottom: 50px;
+    opacity: 1;
+  }
+  100% {
+    bottom: 100vh;
+    opacity: 1;
+  }
+}
+
+/* Hiệu ứng nổ */
+.explosion {
+  width: 60px;
+  height: 60px;
+  background: url("./explosion.png") no-repeat center;
+  background-size: contain;
+  position: absolute;
+  animation: explode 0.5s ease-out forwards;
+}
+
+@keyframes explode {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(2);
+  }
+}
+
+/* Trái tim rơi */
+/* Trái tim rơi từ trên xuống */
+.heart {
+  position: absolute;
+  top: -50px;
+  color: red;
+  font-size: 20px;
+  animation: fall linear infinite;
+  opacity: 0.8;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-100px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+/* Chứa nội dung chữ và ảnh */
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  opacity: 0;
+  transition: opacity 2s ease-in-out;
+  flex-direction: row;
+}
+
+/* Hiện dần khi kích hoạt */
+.content.show {
+  opacity: 1;
+}
+
+/* Hiệu ứng đánh máy */
+#animated-text {
+  font-size: 30px;
+  font-weight: bold;
+  color: #ff4d6d;
+  text-align: left;
+  min-width: 350px;
+  white-space: pre-line;
+  position: relative;
+}
+
+/* Con trỏ nhấp nháy */
+#animated-text::after {
+  content: "|";
+  animation: blinkCursor 0.8s infinite;
+}
+
+@keyframes blinkCursor {
+  50% {
+    opacity: 0;
+  }
+}
+
+.heart-frame {
+  width: 600px;
+  height: 600px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  padding: 20px;
+  animation: swing2 4s infinite ease-in-out, glow 3s infinite ease-in-out;
+  transition: opacity 2s ease-in-out;
+  clip-path: path(
+    "M60,180 A120,120,0,0,1,300,180 A120,120,0,0,1,540,180 Q540,360,300,540 Q60,360,60,180 Z"
+  );
+  overflow: hidden;
+}
+
+.heart-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.heart-frame.show {
+  opacity: 1;
+  animation: slideIn 2s ease-out forwards;
+}
+
+@keyframes swing2 {
+  0% {
+    transform: rotate(-5deg);
+  }
+  50% {
+    transform: rotate(5deg);
+  }
+  100% {
+    transform: rotate(-5deg);
+  }
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 20px rgba(255, 105, 180, 0.5),
+      0 0 40px rgba(255, 105, 180, 0.5), 0 0 60px rgba(255, 105, 180, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(255, 105, 180, 0.8),
+      0 0 60px rgba(255, 105, 180, 0.8), 0 0 90px rgba(255, 105, 180, 0.8);
+  }
+  100% {
+    box-shadow: 0 0 20px rgba(255, 105, 180, 0.5),
+      0 0 40px rgba(255, 105, 180, 0.5), 0 0 60px rgba(255, 105, 180, 0.5);
+  }
+}
+
+/* Hiệu ứng slideIn */
+@keyframes slideIn {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Animation swing */
+@keyframes swing {
+  0% {
+    transform: rotate(-10deg);
+  }
+  100% {
+    transform: rotate(10deg);
+  }
+}
+
+/* Animation slideIn */
+@keyframes slideIn {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(-50px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* === RESPONSIVE CHO MOBILE === */
+@media screen and (max-width: 768px) {
+  .content {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  #animated-text {
+    font-size: 28px;
+    max-width: 90%;
+    text-align: center;
+  }
+
+  .heart-frame {
+    width: 150px;
+    height: 150px;
+  }
+}
