@@ -10,6 +10,11 @@ body {
   align-items: center;
 }
 
+.container {
+  width: 100%;
+  overflow: hidden;
+}
+
 /* Nút trái tim */
 .heart-button {
   font-size: 120px;
@@ -149,11 +154,15 @@ body {
   align-items: center;
   opacity: 0;
   padding: 20px;
+  /* animation: swing2 4s infinite ease-in-out, glow 3s infinite ease-in-out; */
   animation: swing2 4s infinite ease-in-out, glow 3s infinite ease-in-out;
   transition: opacity 2s ease-in-out;
   clip-path: path(
     "M60,180 A120,120,0,0,1,300,180 A120,120,0,0,1,540,180 Q540,360,300,540 Q60,360,60,180 Z"
   );
+  box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px,
+    rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px,
+    rgba(240, 46, 170, 0.05) 25px 25px;
   overflow: hidden;
 }
 
@@ -168,7 +177,22 @@ body {
 
 .heart-frame.show {
   opacity: 1;
-  animation: slideIn 2s ease-out forwards;
+  /* animation: slideIn 2s ease-out forwards; */
+}
+
+@keyframes halo {
+  0% {
+    box-shadow: 0 0 50px rgba(255, 105, 180, 0.8),
+      0 0 100px rgba(255, 105, 180, 0.8), 0 0 150px rgba(255, 105, 180, 0.8);
+  }
+  50% {
+    box-shadow: 0 0 100px rgba(255, 105, 180, 1),
+      0 0 200px rgba(255, 105, 180, 1), 0 0 300px rgba(255, 105, 180, 1);
+  }
+  100% {
+    box-shadow: 0 0 50px rgba(255, 105, 180, 0.8),
+      0 0 100px rgba(255, 105, 180, 0.8), 0 0 150px rgba(255, 105, 180, 0.8);
+  }
 }
 
 @keyframes swing2 {
@@ -243,19 +267,44 @@ body {
 
 /* === RESPONSIVE CHO MOBILE === */
 @media screen and (max-width: 768px) {
-  .content {
-    flex-direction: column;
-    gap: 20px;
+  body {
+    overflow: hidden;
+    padding: 20px;
   }
 
+  /* Điều chỉnh nút trái tim */
+  .heart-button {
+    font-size: 80px;
+    margin-top: 150px;
+  }
+
+  /* Bố cục nội dung */
+  .content {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  /* Văn bản hiển thị */
   #animated-text {
-    font-size: 28px;
+    font-size: 20px;
     max-width: 90%;
     text-align: center;
   }
 
+  /* Khung ảnh trái tim */
   .heart-frame {
-    width: 150px;
-    height: 150px;
+    width: 250px; /* Giảm kích thước */
+    height: 250px;
+    padding: 10px;
+    clip-path: path(
+      "M25,75 A50,50,0,0,1,125,75 A50,50,0,0,1,225,75 Q225,150,125,225 Q25,150,25,75 Z"
+    );
+  }
+
+  .heart-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 }
