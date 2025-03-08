@@ -71,7 +71,7 @@ function typeWriterEffect() {
   function type() {
     document.getElementById("animated-text").textContent += text[i];
     i++;
-    if (i < text.length) setTimeout(type, 300);
+    if (i < text.length) setTimeout(type, 100);
   }
   type();
 }
