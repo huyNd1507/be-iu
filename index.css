@@ -154,7 +154,6 @@ body {
   align-items: center;
   opacity: 0;
   padding: 20px;
-  /* animation: swing2 4s infinite ease-in-out, glow 3s infinite ease-in-out; */
   animation: swing2 4s infinite ease-in-out, glow 3s infinite ease-in-out;
   transition: opacity 2s ease-in-out;
   clip-path: path(
@@ -178,6 +177,56 @@ body {
 .heart-frame.show {
   opacity: 1;
   /* animation: slideIn 2s ease-out forwards; */
+}
+
+.hearts-around {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.heart-small {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: #ff4d6d;
+  clip-path: path(
+    "M15,30 C15,20 30,15 45,30 C60,15 75,20 75,30 C75,45 45,60 45,60 C45,60 15,45 15,30 Z"
+  );
+  animation: float 6s infinite ease-in-out;
+}
+
+.heart-small:nth-child(1) {
+  top: 10%;
+  left: 20%;
+  animation-delay: 0s;
+}
+
+.heart-small:nth-child(2) {
+  top: 20%;
+  left: 70%;
+  animation-delay: 1s;
+}
+
+.heart-small:nth-child(3) {
+  top: 50%;
+  left: 10%;
+  animation-delay: 2s;
+}
+
+.heart-small:nth-child(4) {
+  top: 60%;
+  left: 80%;
+  animation-delay: 3s;
+}
+
+.heart-small:nth-child(5) {
+  top: 80%;
+  left: 30%;
+  animation-delay: 4s;
 }
 
 @keyframes halo {
